@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 from pandarallel import pandarallel
 
+import os
+
 
 from pyproj import Transformer
 
@@ -35,7 +37,8 @@ def get_age(x, ages_dict, global_dict, min_y, max_y, target_cols):
 # --------------------------------
 
 name = '서울특별시'  # 전처리할 지역 이름
-output_name = '문화_노래연습장업'  # 처리할 파일 이름
+output_name = '생활_이용업'  # 처리할 파일 이름
+dir = '#미용/' # 저장할 폴더 이름
 
 # --------------------------------
 
@@ -132,4 +135,5 @@ if __name__ == '__main__':
     data = data.dropna(subset=['㎡당단가(만원)'])
 
     data.info()
-    data.to_csv(f'{output_name}_{name}.csv', index=False, encoding='utf-8-sig')
+    os.makedirs(dir, exist_ok=True)
+    data.to_csv(f'{dir}{output_name}_{name}.csv', index=False, encoding='utf-8-sig')
