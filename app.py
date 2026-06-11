@@ -459,7 +459,7 @@ if (map_data or lob != st.session_state["previous_lob"]) and map_data.get("last_
     # ML 모델 예측
     with st.spinner("AI 모델이 예측을 수행 중입니다..."):
         # survival_days = 600
-        survival_days=(predict(inputdata)-800)*1.3
+        survival_days=(predict(inputdata)-800)*1.15
         if(survival_days/365>10):
             survival_days=10*365
         if survival_days/365>5.5:
