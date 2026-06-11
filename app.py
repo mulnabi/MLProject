@@ -468,5 +468,3 @@ if (map_data or lob != st.session_state["previous_lob"]) and map_data.get("last_
             st.error(f"⚠️ **해당 구역의 소상공인 평균 생존기간: {(survival_days-200)/365:.1f}~{(survival_days+200)/365:.1f}년**")
         
         
-    
-    
