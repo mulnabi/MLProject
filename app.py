@@ -389,7 +389,7 @@ st.title("지역 상권 폐업일 예측 대시보드")
 st.write("지도에서 분석을 원하는 상권 위치를 클릭하세요.")
 
 # 중심 좌표 설정 및 지도 객체 생성 (예: 대전광역시 서구청 부근)
-m = folium.Map(location=[36.3504, 127.3845], zoom_start=14)
+m = folium.Map(location=[37.5021, 127.0359], zoom_start=14)
 m.add_child(SingleClickMarker())
 
 map_data = st_folium(m, width=700, height=500, returned_objects=["last_clicked"])
@@ -468,5 +468,7 @@ if (map_data or lob != st.session_state["previous_lob"]) and map_data.get("last_
             st.warning(f"⚠️ **해당 구역의 소상공인 평균 생존기간: {(survival_days-200)/365:.1f}~{(survival_days+200)/365:.1f}년**")
         else:
             st.error(f"☠️ **해당 구역의 소상공인 평균 생존기간: {(survival_days-200)/365:.1f}~{(survival_days+200)/365:.1f}년**")
-        
+        view_df = inputdata[['㎡당단가(만원)','총인구수','평균연령','인구변화율','유동인구','대규모점포_최단거리','동종업종수','총업종수']].T
+        view_df.columns = ['값']
+        st.table(view_df)
         
