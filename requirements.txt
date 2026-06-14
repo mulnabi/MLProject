@@ -1,0 +1,11 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+streamlit
+streamlit-folium
+folium
+pandas
+numpy
+requests
+scikit-learn
+joblib
+torch
